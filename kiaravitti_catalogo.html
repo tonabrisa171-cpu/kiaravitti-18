@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10090d">
+  <title>Kiaravitti Exclusive | Catálogo</title>
+  <style>
+    :root {
+      --bg: #10090d;
+      --panel: #1b1017;
+      --panel-2: #24131d;
+      --wine: #8f173f;
+      --red: #ed315f;
+      --gold: #e7c58b;
+      --text: #fff7fa;
+      --muted: #c8b8c0;
+      --line: rgba(231,197,139,.2);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text);
+      background: radial-gradient(ellipse at top, #351021 0%, var(--bg) 48%, #090609 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 900; letter-spacing: .16em; font-size: 1rem; }
+    .brand span { color: var(--gold); }
+    .nav a { color: var(--muted); text-decoration: none; font-size: .92rem; }
+    .hero { text-align: center; padding: 76px 0 54px; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .22em; font-size: .76rem; font-weight: 800; }
+    h1 { font-size: clamp(2.6rem, 8vw, 5.4rem); line-height: 1.02; letter-spacing: .04em; margin: 12px 0 16px; }
+    h1 span { color: var(--red); }
+    .hero p { color: var(--muted); max-width: 620px; margin: 0 auto 24px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 18px; border-radius: 999px; border: 1px solid transparent;
+      text-decoration: none; font-weight: 800; cursor: pointer; font: inherit;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--red), var(--wine)); color: white; box-shadow: 0 8px 28px rgba(237,49,95,.18); }
+    .btn-outline { border-color: var(--line); color: var(--gold); background: transparent; }
+    .notice { border: 1px solid var(--line); background: rgba(27,16,23,.75); border-radius: 16px; padding: 14px 18px; color: var(--muted); font-size: .9rem; }
+    section { padding: 30px 0 48px; }
+    .section-head { text-align: center; margin-bottom: 26px; }
+    h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 8px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .card {
+      overflow: hidden; border: 1px solid var(--line); border-radius: 20px;
+      background: linear-gradient(155deg, rgba(43,21,33,.96), rgba(19,12,17,.98));
+      display: flex; flex-direction: column; min-width: 0;
+    }
+    .cover {
+      min-height: 145px; display: grid; place-items: center; text-align: center;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(237,49,95,.5), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(231,197,139,.16), transparent 40%),
+        linear-gradient(135deg, #321020, #130c12 65%);
+      border-bottom: 1px solid var(--line); color: var(--gold); font-size: 2rem;
+    }
+    .cover small { display: block; font-size: .65rem; letter-spacing: .2em; font-weight: 800; }
+    .card-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+    .card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .details { color: var(--muted); margin: 0 0 14px; font-size: .92rem; }
+    .price { color: var(--gold); font-size: 1.65rem; font-weight: 900; margin-top: auto; margin-bottom: 16px; }
+    .card .btn { width: 100%; font-size: .92rem; }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .trust-item { background: rgba(27,16,23,.72); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .trust-item strong { display: block; margin-bottom: 5px; color: var(--gold); }
+    .trust-item p { color: var(--muted); margin: 0; font-size: .92rem; }
+    .feedback { max-width: 720px; margin: 0 auto; padding: 26px; border: 1px solid var(--line); border-radius: 22px; background: rgba(27,16,23,.82); }
+    label { display: block; font-weight: 700; margin: 14px 0 6px; }
+    input, select, textarea {
+      width: 100%; border: 1px solid rgba(231,197,139,.28); border-radius: 12px;
+      padding: 12px 13px; color: var(--text); background: #110b10; font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid rgba(237,49,95,.55); border-color: var(--red); }
+    .form-note { color: var(--muted); font-size: .82rem; }
+    .feedback .btn { width: 100%; margin-top: 16px; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 36px; text-align: center; color: var(--muted); font-size: .88rem; }
+    footer strong { color: var(--gold); letter-spacing: .12em; }
+    .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 10; box-shadow: 0 8px 30px rgba(0,0,0,.4); }
+    @media (max-width: 900px) { .products { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) {
+      .hero { padding: 54px 0 38px; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .products, .trust-grid { grid-template-columns: 1fr; }
+      .cover { min-height: 125px; }
+      .feedback { padding: 18px; }
+      .wa-float { right: 12px; bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">KIARA<span>VITTI</span> EXCLUSIVE</div>
+      <nav aria-label="Navegação principal">
+        <a href="#catalogo">Catálogo</a> &nbsp; · &nbsp;
+        <a href="#confianca">Confiança</a> &nbsp; · &nbsp;
+        <a href="#feedback">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="eyebrow">Charme • Mistério • Exclusividade</div>
+      <h1>KIARA<span>VITTI</span></h1>
+      <p>Seu segredo favorito. 😈 Um catálogo exclusivo de packs de fotos e vídeos, com informações claras e atendimento respeitoso.</p>
+      <a class="btn btn-primary" href="#catalogo">🔥 Ver catálogo</a>
+      <div style="margin-top:24px">
+        <div class="notice">🔞 Conteúdo e atendimento destinados exclusivamente a maiores de 18 anos. Confira os detalhes e valores antes de comprar.</div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Escolha o seu</div>
+        <h2>🔥 Catálogo exclusivo</h2>
+        <p>Selecione um pack para consultar ou comprar pelo WhatsApp.</p>
+      </div>
+      <div class="products">
+        <article class="card">
+          <div class="cover">♡<small>KIARAVITTI EXCLUSIVE</small></div>
+          <div class="card-body">
+            <h3>Pack Básico</h3>
+            <p class="details">📸 10 fotos</p>
+            <div class="price">R$ 15,00</div>
+            <a class="btn btn-primary product-link" data-product="Pack Básico" data-price="R$ 15,00" href="#">Consultar pack</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="cover">✦<small>KIARAVITTI EXCLUSIVE</small></div>
+          <div class="card-body">
+            <h3>Pack Premium</h3>
+            <p class="details">📸 20 fotos<br>🎥 3 vídeos</p>
+            <div class="price">R$ 30,00</div>
+            <a class="btn btn-primary product-link" data-product="Pack Premium" data-price="R$ 30,00" href="#">Consultar pack</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="cover">♥<small>KIARAVITTI EXCLUSIVE</small></div>
+          <div class="card-body">
+            <h3>Pack VIP</h3>
+            <p class="details">📸 30 fotos<br>🎥 5 vídeos</p>
+            <div class="price">R$ 50,00</div>
+            <a class="btn btn-primary product-link" data-product="Pack VIP" data-price="R$ 50,00" href="#">Consultar pack</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="cover">♛<small>KIARAVITTI EXCLUSIVE</small></div>
+          <div class="card-body">
+            <h3>Pack Completo</h3>
+            <p class="details">📸 50 fotos<br>🎥 10 vídeos</p>
+            <div class="price">R$ 80,00</div>
+            <a class="btn btn-primary product-link" data-product="Pack Completo" data-price="R$ 80,00" href="#">Consultar pack</a>
+          </div>
+        </article>
+      </div>
+      <p class="form-note" style="text-align:center;margin-top:16px">Os preços e quantidades acima são exemplos editáveis. Atualize-os para corresponder aos packs realmente disponíveis.</p>
+    </section>
+
+    <section id="confianca" class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Transparência em primeiro lugar</div>
+        <h2>🔒 Confiança, discrição e respeito</h2>
+        <p>Uma experiência mais tranquila começa com informação clara.</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item"><strong>🔐 Privacidade</strong><p>Respeito à privacidade e aos limites de cada pessoa.</p></div>
+        <div class="trust-item"><strong>💰 Transparência</strong><p>Valores apresentados antes da compra, sem surpresas.</p></div>
+        <div class="trust-item"><strong>💬 Atendimento respeitoso</strong><p>Tire dúvidas sobre disponibilidade e conteúdo antes de decidir.</p></div>
+      </div>
+    </section>
+
+    <section id="feedback" class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Sua opinião importa</div>
+        <h2>💌 Deixe seu feedback</h2>
+        <p>Envie uma sugestão, avaliação ou comentário pelo WhatsApp.</p>
+      </div>
+      <form class="feedback" id="feedbackForm">
+        <label for="nome">Nome ou apelido (opcional)</label>
+        <input id="nome" name="nome" maxlength="60" placeholder="Como podemos te chamar?">
+        <label for="avaliacao">Como foi sua experiência?</label>
+        <select id="avaliacao" name="avaliacao" required>
+          <option value="">Selecione uma avaliação</option>
+          <option>⭐⭐⭐⭐⭐ — Excelente</option>
+          <option>⭐⭐⭐⭐ — Muito boa</option>
+          <option>⭐⭐⭐ — Boa</option>
+          <option>⭐⭐ — Pode melhorar</option>
+          <option>⭐ — Precisa melhorar</option>
+        </select>
+        <label for="comentario">Comentário ou sugestão</label>
+        <textarea id="comentario" name="comentario" maxlength="1000" placeholder="Conte como podemos melhorar..." required></textarea>
+        <p class="form-note">Ao enviar, o WhatsApp será aberto com sua mensagem pronta para você revisar e mandar. O site não armazena feedbacks.</p>
+        <button class="btn btn-primary" type="submit">Enviar feedback pelo WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>KIARAVITTI EXCLUSIVE</strong>
+      <p>Seu segredo favorito. 😏🔥</p>
+      <p>🔞 Somente para maiores de 18 anos.</p>
+      <p>Respeito, consentimento e privacidade sempre.</p>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary wa-float" id="generalWhatsApp" href="#" aria-label="Conversar pelo WhatsApp">WhatsApp ↗</a>
+
+  <script>
+    // Número em formato internacional, sem espaços, parênteses ou hífens.
+    const whatsappNumber = "5545999123873";
+    function whatsappUrl(message) {
+      return "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+    }
+
+    document.querySelectorAll(".product-link").forEach((link) => {
+      const product = link.dataset.product;
+      const price = link.dataset.price;
+      link.href = whatsappUrl(
+        "Olá, Kiara! Tenho interesse no " + product + " (" + price + "). Pode me passar mais informações?"
+      );
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    });
+
+    document.getElementById("generalWhatsApp").href = whatsappUrl(
+      "Olá, Kiara! Vim pelo catálogo Kiaravitti Exclusive e gostaria de tirar uma dúvida."
+    );
+    document.getElementById("generalWhatsApp").target = "_blank";
+    document.getElementById("generalWhatsApp").rel = "noopener noreferrer";
+
+    document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const nome = document.getElementById("nome").value.trim() || "Não informado";
+      const avaliacao = document.getElementById("avaliacao").value;
+      const comentario = document.getElementById("comentario").value.trim();
+      const message = "Olá, Kiara! Quero deixar um feedback sobre o catálogo Kiaravitti Exclusive.\n\n" +
+        "Nome/apelido: " + nome + "\n" +
+        "Avaliação: " + avaliacao + "\n" +
+        "Comentário: " + comentario;
+      window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
+    });
+  </script>
+</body>
+</html>
